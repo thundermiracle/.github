@@ -8,12 +8,15 @@
     "group:allNonMajor",
     "group:monorepos"
   ],
+  "node": {
+    "enabled": false
+  },
   "rebaseWhen": "conflicted",
   "labels": ["dependencies"],
   "rangeStrategy": "bump",
   "platformCommit": true,
   "platformAutomerge": true,
-  "automerge": true,
+  "automerge": false,
   "major": {
     "automerge": false
   },
@@ -33,6 +36,16 @@
       "extends": "packages:jsTest",
       "matchPackageNames": ["vitest", "@swc/core", "@swc/jest"],
       "groupName": "JS test packages"
+    },
+    {
+      "extends": "monorepo:gatsby",
+      "matchUpdateTypes": ["digest", "patch", "minor", "major"],
+      "matchPackagePatterns": ["^gatsby-plugin-"],
+      "groupName": "gatsby monorepo"
+    },
+    {
+      "groupName": "Font Awesome",
+      "matchPackagePatterns": ["^@fortawesome/", "^@styled-icons/"]
     }
   ],
   "ignoreDeps": ["node", "graphql"]

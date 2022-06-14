@@ -1,0 +1,39 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "timezone": "Asia/Tokyo",
+  "schedule": ["after 1am and before 6am on the first day of the month"],
+  "extends": [
+    "config:base",
+    "schedule:monthly",
+    "group:allNonMajor",
+    "group:monorepos"
+  ],
+  "rebaseWhen": "conflicted",
+  "labels": ["dependencies"],
+  "rangeStrategy": "bump",
+  "platformCommit": true,
+  "platformAutomerge": true,
+  "automerge": true,
+  "major": {
+    "automerge": false
+  },
+  "packageRules": [
+    {
+      "extends": "packages:linters",
+      "matchPackageNames": ["^eslint-plugin-"],
+      "groupName": "linters"
+    },
+    {
+      "extends": "monorepo:babel",
+      "matchUpdateTypes": ["digest", "patch", "minor", "major"],
+      "matchPackagePatterns": ["^babel-plugin-"],
+      "groupName": "babel monorepo"
+    },
+    {
+      "extends": "packages:jsTest",
+      "matchPackageNames": ["vitest", "@swc/core", "@swc/jest"],
+      "groupName": "JS test packages"
+    }
+  ],
+  "ignoreDeps": ["node", "graphql"]
+}

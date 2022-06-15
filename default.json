@@ -24,28 +24,39 @@
     {
       "extends": "packages:linters",
       "matchPackageNames": ["^eslint-plugin-"],
-      "groupName": "linters"
+      "groupName": "linters",
+      "automerge": true
     },
     {
       "extends": "monorepo:babel",
       "matchUpdateTypes": ["digest", "patch", "minor", "major"],
       "matchPackagePatterns": ["^babel-plugin-"],
-      "groupName": "babel monorepo"
+      "groupName": "babel monorepo",
+      "automerge": true
     },
     {
       "extends": "packages:jsTest",
       "matchPackageNames": ["vitest", "@swc/core", "@swc/jest"],
-      "groupName": "JS test packages"
+      "groupName": "JS test packages",
+      "automerge": true
     },
     {
       "extends": "monorepo:gatsby",
-      "matchUpdateTypes": ["digest", "patch", "minor", "major"],
+      "matchUpdateTypes": ["digest", "patch", "minor"],
       "matchPackagePatterns": ["^gatsby-plugin-"],
-      "groupName": "gatsby monorepo"
+      "groupName": "gatsby monorepo",
+      "automerge": true
     },
     {
       "groupName": "Font Awesome",
-      "matchPackagePatterns": ["^@fortawesome/", "^@styled-icons/"]
+      "matchPackagePatterns": ["^@fortawesome/", "^@styled-icons/"],
+      "automerge": true
+    },
+    {
+      "extends": "monorepo:nextjs",
+      "matchUpdateTypes": ["digest", "patch", "minor"],
+      "groupName": "nextjs monorepo",
+      "automerge": true
     }
   ],
   "ignoreDeps": ["node", "graphql"]

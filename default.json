@@ -2,9 +2,7 @@
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "timezone": "Asia/Tokyo",
   "schedule": [
-    "after 1am and before 6am on the first day of the month",
-    "after 1am and before 6am on the second day of the month",
-    "after 1am and before 6am on the third day of the month"
+    "after 1am and before 6am on the 1st through 3rd day of the month"
   ],
   "extends": ["config:base", "group:allNonMajor"],
   "node": {

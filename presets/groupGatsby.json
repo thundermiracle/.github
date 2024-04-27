@@ -1,0 +1,12 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "packageRules": [
+    {
+      "groupName": "gatsby monorepo",
+      "extends": ["monorepo:gatsby"],
+      "matchUpdateTypes": ["digest", "patch", "minor"],
+      "matchPackagePatterns": ["^gatsby-plugin-"],
+      "automerge": true
+    }
+  ]
+}

@@ -4,56 +4,28 @@
   "schedule": [
     "after 1am and before 6am on the 1st through 3rd day of the month"
   ],
-  "extends": ["config:base", "group:allNonMajor"],
-  "node": {
-    "enabled": false
-  },
+  "extends": [
+    "config:recommended",
+    "group:allNonMajor",
+    ":semanticCommitTypeAll(chore)",
+    "github>thundermiracle/.github//presets/groupBabel",
+    "github>thundermiracle/.github//presets/groupFontAwesome",
+    "github>thundermiracle/.github//presets/groupGatsby",
+    "github>thundermiracle/.github//presets/groupGithubActions",
+    "github>thundermiracle/.github//presets/groupJSTest",
+    "github>thundermiracle/.github//presets/groupLinters",
+    "github>thundermiracle/.github//presets/groupNext",
+    "github>thundermiracle/.github//presets/groupReact"
+  ],
   "rebaseWhen": "conflicted",
   "labels": ["dependencies"],
   "rangeStrategy": "bump",
   "platformCommit": true,
   "platformAutomerge": true,
   "major": {
-    "automerge": false
+    "automerge": false,
+    "labels": ["major"]
   },
-  "packageRules": [
-    {
-      "extends": "packages:linters",
-      "matchPackageNames": ["^eslint-plugin-"],
-      "groupName": "linters",
-      "automerge": true
-    },
-    {
-      "extends": "monorepo:babel",
-      "matchUpdateTypes": ["digest", "patch", "minor", "major"],
-      "matchPackagePatterns": ["^babel-plugin-"],
-      "groupName": "babel monorepo",
-      "automerge": true
-    },
-    {
-      "extends": "packages:jsTest",
-      "matchPackageNames": ["vitest", "@swc/core", "@swc/jest"],
-      "groupName": "JS test packages",
-      "automerge": true
-    },
-    {
-      "extends": "monorepo:gatsby",
-      "matchUpdateTypes": ["digest", "patch", "minor"],
-      "matchPackagePatterns": ["^gatsby-plugin-"],
-      "groupName": "gatsby monorepo",
-      "automerge": true
-    },
-    {
-      "groupName": "Font Awesome",
-      "matchPackagePatterns": ["^@fortawesome/", "^@styled-icons/"],
-      "automerge": true
-    },
-    {
-      "extends": "monorepo:nextjs",
-      "matchUpdateTypes": ["digest", "patch", "minor"],
-      "groupName": "nextjs monorepo",
-      "automerge": true
-    }
-  ],
+  "packageRules": [{ "matchCategories": ["node"], "enabled": false }],
   "ignoreDeps": ["node", "graphql"]
 }

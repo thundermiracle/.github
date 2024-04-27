@@ -1,0 +1,10 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "packageRules": [
+    {
+      "groupName": "Font Awesome",
+      "matchPackagePatterns": ["^@fortawesome/", "^@styled-icons/"],
+      "automerge": true
+    }
+  ]
+}

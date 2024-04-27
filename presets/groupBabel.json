@@ -3,7 +3,7 @@
   "packageRules": [
     {
       "groupName": "babel monorepo",
-      "extends": "monorepo:babel",
+      "extends": ["monorepo:babel"],
       "matchUpdateTypes": ["digest", "patch", "minor", "major"],
       "matchPackagePatterns": ["^babel-plugin-", "@web-configs/babel-preset"],
       "automerge": true

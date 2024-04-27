@@ -3,7 +3,7 @@
   "packageRules": [
     {
       "groupName": "gatsby monorepo",
-      "extends": "monorepo:gatsby",
+      "extends": ["monorepo:gatsby"],
       "matchUpdateTypes": ["digest", "patch", "minor"],
       "matchPackagePatterns": ["^gatsby-plugin-"],
       "automerge": true

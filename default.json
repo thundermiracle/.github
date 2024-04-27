@@ -17,9 +17,6 @@
     "github>thundermiracle/.github//presets/groupNext",
     "github>thundermiracle/.github//presets/groupReact"
   ],
-  "node": {
-    "enabled": false
-  },
   "rebaseWhen": "conflicted",
   "labels": ["dependencies"],
   "rangeStrategy": "bump",
@@ -29,6 +26,6 @@
     "automerge": false,
     "labels": ["major"]
   },
-  "packageRules": [],
+  "packageRules": [{ "matchCategories": ["node"], "enabled": false }],
   "ignoreDeps": ["node", "graphql"]
 }

@@ -8,20 +8,24 @@ env:
   LOG_LEVEL: debug
 
 jobs:
-  preset:
+  validate-renovate-config:
     runs-on: ubuntu-latest
     timeout-minutes: 10
 
-    strategy:
-      matrix:
-        file:
-          - default
-          - renovate-config
-    env:
-      RENOVATE_CONFIG_FILE: ${{ matrix.file }}.json
-
     steps:
-      - uses: actions/checkout@v3
-
-      - name: testing ${{ matrix.file }}
-        run: npx -p renovate renovate-config-validator
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Get node version
+        id: node-version
+        run: echo "NODE_VERSION=$(node -v)" >> $GITHUB_OUTPUT
+      - uses: actions/cache@v4
+        with:
+          path: ~/.npm
+          key: ${{ runner.os }}-node-${{ steps.node-version.outputs.NODE_VERSION }}
+      - name: Validate renovate config
+        run: |
+          for file in *.json* presets/*.json*; do
+            npx -p renovate renovate-config-validator ${file}
+          done

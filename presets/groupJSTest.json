@@ -1,0 +1,18 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "packageRules": [
+    {
+      "groupName": "JS test packages",
+      "extends": ["packages:jsTest"],
+      "matchPackageNames": [
+        "msw",
+        "vitest",
+        "^vite-",
+        "^@vitest/",
+        "playwright",
+        "^@playwright/"
+      ],
+      "automerge": true
+    }
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "packageRules": [
+    {
+      "groupName": "linters",
+      "extends": ["packages:linters"],
+      "matchPackageNames": [
+        "^eslint-plugin-",
+        "prettier",
+        "@web-configs/eslint-plugin",
+        "@web-configs/prettier",
+        "@web-configs/stylelint-plugin"
+      ],
+      "automerge": true
+    }
+  ]
+}

@@ -20,7 +20,7 @@
   "rebaseWhen": "conflicted",
   "labels": ["dependencies"],
   "rangeStrategy": "bump",
-  "platformCommit": true,
+  "platformCommit": "enabled",
   "platformAutomerge": true,
   "major": {
     "automerge": false,
